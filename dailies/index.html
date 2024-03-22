@@ -1,10 +1,46 @@
+<!DOCTYPE html>
 <html>
-  <head>
-  </head>
-  <body>
-    <a href="https://www.neopets.com/bank.phtml">Bank Interest</a></br>
-    <a href="https://www.neopets.com/pirates/foodclub.phtml">Food Club</a></br>
-    <a href="http://ncmall.neopets.com/games/giveaway/process_giveaway.phtml">Qasalan Expellibox</a>
-    
-  </body>
+<head>
+<script>
+function setCookie(cname, cvalue, exminutes) {
+  const d = new Date();
+  d.setTime(d.getTime() + (exminutes * 60 * 1000)); // Expiration time in minutes
+  let expires = "expires=" + d.toUTCString();
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+function getCookie(cname) {
+  let name = cname + "=";
+  let decodedCookie = decodeURIComponent(document.cookie);
+  let ca = decodedCookie.split(';');
+  for (let i = 0; i < ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+
+function hideLink() {
+  document.getElementById("myLink").style.display = "none";
+  setCookie("linkStatus", "hidden", 40); // Set cookie to remember link status for 40 minutes
+}
+
+window.onload = function() {
+  let linkStatus = getCookie("linkStatus");
+  if (linkStatus === "hidden") {
+    document.getElementById("myLink").style.display = "none";
+  }
+};
+</script>
+</head>
+<body>
+
+<a id="myLink" href="https://www.neopets.com/prehistoric/mediocrity.phtml" onclick="hideLink()">Wheel of Mediocrity</a>
+
+</body>
 </html>
