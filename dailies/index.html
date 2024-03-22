@@ -29,11 +29,19 @@ function hideLink() {
   document.getElementById("myLink").style.display = "none";
   setCookie("linkStatus", "hidden", 40); // Set cookie to remember link status for 40 minutes
 }
+function hideLink1() {
+  document.getElementById("myLink1").style.display = "none";
+  setCookie("linkStatus1", "hidden", 120); // Set cookie to remember link status for 40 minutes
+}
 
 window.onload = function() {
   let linkStatus = getCookie("linkStatus");
+  let linkStatus1 = getCookie("linkStatus1");
   if (linkStatus === "hidden") {
     document.getElementById("myLink").style.display = "none";
+  }
+  if (linkStatus1 === "hidden") {
+    document.getElementById("myLink1").style.display = "none";
   }
 };
 </script>
@@ -41,6 +49,7 @@ window.onload = function() {
 <body>
 
 <a id="myLink" href="https://www.neopets.com/prehistoric/mediocrity.phtml" onclick="hideLink()">Wheel of Mediocrity</a>
-
+<a id="myLink1" href="https://www.neopets.com/faerieland/wheel.phtml" onclick="hideLink1()">Wheel of Excitement</a>
+  
 </body>
 </html>
