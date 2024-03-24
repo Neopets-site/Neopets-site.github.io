@@ -31,18 +31,30 @@ function hideLink() {
 }
 function hideLink1() {
   document.getElementById("myLink1").style.display = "none";
-  setCookie("linkStatus1", "hidden", 120); // Set cookie to remember link status for 40 minutes
+  setCookie("linkStatus1", "hidden", 120); // Set cookie to remember link status for 120 minutes
+}
+function hideLink2() {
+  document.getElementById("myLink2").style.display = "none";
+  setCookie("linkStatus1", "hidden", 427); // Set cookie to remember link status for 7 hours 7 minutes
 }
 
+
 window.onload = function() {
+  
   let linkStatus = getCookie("linkStatus");
   let linkStatus1 = getCookie("linkStatus1");
+  let linkStatus2 = getCookie("linkStatus2");
+  
   if (linkStatus === "hidden") {
     document.getElementById("myLink").style.display = "none";
   }
   if (linkStatus1 === "hidden") {
     document.getElementById("myLink1").style.display = "none";
   }
+  if (linkStatus2 === "hidden") {
+    document.getElementById("myLink2").style.display = "none";
+  }
+  
 };
 </script>
 </head>
@@ -50,6 +62,7 @@ window.onload = function() {
 
 <a id="myLink" href="https://www.neopets.com/prehistoric/mediocrity.phtml" onclick="hideLink()">Wheel of Mediocrity</a>
 <a id="myLink1" href="https://www.neopets.com/faerieland/wheel.phtml" onclick="hideLink1()">Wheel of Excitement</a>
+<a id="myLink2" href="http://ncmall.neopets.com/games/giveaway/process_giveaway.phtml" onclick="hideLink2()">Qasalan Expellibox</a>
   
 </body>
 </html>
